@@ -1,0 +1,5 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@skeletonlabs/skeleton/themes/theme-modern.css'; /* Choose your Skeleton theme */

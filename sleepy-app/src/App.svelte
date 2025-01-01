@@ -17,6 +17,7 @@
   <input bind:value={url} placeholder="Enter URL" />
   <button on:click={gatherInfo}>Gather Info</button>
   <button on:click={redirectToSite}>Redirect</button>
+  <button class="btn btn-primary">Primary Button</button>
   <button on:click={randomDocs}>Random Docs</button>
   <pre>{response}</pre>
 </main>
