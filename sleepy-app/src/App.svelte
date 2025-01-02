@@ -1,15 +1,27 @@
 <script>
+    console.log("App mounted!");
   let url = '';
   let response = '';
 
   async function gatherInfo() {
-    const res = await fetch(`/api/gather-info?url=${encodeURIComponent(url)}`);
-    response = await res.text();
+    try {
+      const res = await fetch(`/api/gather-info?url=${encodeURIComponent(url)}`);
+      if (!res.ok) throw new Error(`Error: ${res.status}`);
+      response = await res.text();
+    } catch (err) {
+      response = `Failed to fetch data: ${err.message}`;
+      console.error(err);
+    }
   }
 
   async function redirectToSite() {
-    window.location.href = url;
+    if (url) {
+      window.location.href = url;
+    } else {
+      response = "Please enter a valid URL!";
+    }
   }
+  
 </script>
 
 <main>
@@ -18,7 +30,6 @@
   <button on:click={gatherInfo}>Gather Info</button>
   <button on:click={redirectToSite}>Redirect</button>
   <button class="btn btn-primary">Primary Button</button>
-  <button on:click={randomDocs}>Random Docs</button>
   <pre>{response}</pre>
 </main>
 
