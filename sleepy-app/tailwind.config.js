@@ -1,15 +1,11 @@
 /** @type {import('tailwindcss').Config} */
-const { skeleton } = require('@skeletonlabs/tw-plugin');
-
-module.exports = {
+export default {
   content: [
-    './src/**/*.{html,js,svelte,ts}', // Include your app's files
-    './node_modules/@skeletonlabs/skeleton/**/*.{html,js,svelte,ts}', // Include Skeleton UI
+    './src/**/*.{html,js,svelte,ts}', // Add svelte files to content
+    "./public/index.html", 
   ],
   theme: {
     extend: {},
   },
-  plugins: [
-    skeleton(), // Add Skeleton's Tailwind plugin
-  ],
+  plugins: [],
 };

@@ -1,5 +1,7 @@
-import { preprocess } from '@sveltejs/kit'; // Use the new import
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 
 export default {
-  preprocess: preprocess(),
-};
+  // Consult https://svelte.dev/docs#compile-time-svelte-preprocess
+  // for more information about preprocessors
+  preprocess: vitePreprocess(),
+}
